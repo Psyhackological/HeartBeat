@@ -1,0 +1,2 @@
+# HeartBeat
+Get your heart racing with HeartBeat! This AI-powered machine learning project skips a beat to predict heart disease. It's like a cardio workout for your data, crunching numbers to keep your health in check.
