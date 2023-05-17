@@ -37,3 +37,20 @@ class HeartDiseasePredictor(BaseModel):
     def predict(self, data: pd.DataFrame) -> Any:
         """Predict using the trained HeartDiseasePredictor model with data"""
         return self.model.predict(data)
+
+
+def log_results(func: Any) -> Any:
+    """Decorator for logging function results"""
+
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
+        result = func(*args, **kwargs)
+        print(f"Function {func.__name__} returned {result}")
+        return result
+
+    return wrapper
+
+
+@log_results
+def calculate_average_age(data: pd.DataFrame) -> float:
+    """Calculate the average age of patients"""
+    return data["age"].mean()
