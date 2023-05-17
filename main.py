@@ -25,17 +25,21 @@ class HeartDiseasePredictor(BaseModel):
     """Heart Disease Predictor class"""
 
     def __init__(self) -> None:
-        self.model = RandomForestClassifier()
+        self.models = [
+            RandomForestClassifier() for _ in range(3)
+        ]  # TODO: Implement more models
 
     def train(self, data: pd.DataFrame) -> None:
-        """Train the HeartDiseasePredictor model with data"""
+        """Train the HeartDiseasePredictor models with data"""
         x_train_data = data.drop("target", axis=1)
         y_train_data = data["target"]
-        self.model.fit(x_train_data, y_train_data)
+        for model in self.models:
+            model.fit(x_train_data, y_train_data)
 
     def predict(self, data: pd.DataFrame) -> Any:
-        """Predict using the trained HeartDiseasePredictor model with data"""
-        return self.model.predict(data)
+        """Predict using the trained HeartDiseasePredictor models with data"""
+        predictions = [model.predict(data) for model in self.models]
+        return predictions
 
 
 def log_results(func: Any) -> Any:
@@ -43,7 +47,7 @@ def log_results(func: Any) -> Any:
 
     def wrapper(*args: Any, **kwargs: Any) -> Any:
         result = func(*args, **kwargs)
-        print(f"Function {func.__name__} returned {result}")
+        print(f"Function {func.__name__} returned {result:.2f}")
         return result
 
     return wrapper
@@ -64,11 +68,15 @@ x_train, x_test, y_train, y_test = train_test_split(
 
 predictor = HeartDiseasePredictor()
 predictor.train(pd.concat([x_train, y_train], axis=1))
-predictions = predictor.predict(x_test)
-accuracy = accuracy_score(y_test, predictions)
-report = classification_report(y_test, predictions)
+model_predictions = predictor.predict(x_test)  # list of predictions for each model
+
+# Loop to print out the accuracy of each model
+for i, pred in enumerate(model_predictions):
+    accuracy = accuracy_score(y_test, pred)
+    report = classification_report(y_test, pred)
+    print(f"Model {i+1} Accuracy: {accuracy:.2f}")
+    print(f"Model {i+1} Classification Report:\n{report}")
+
 average_age = calculate_average_age(df)
 
-print(f"Accuracy: {accuracy:.2f}")
-print(f"Classification Report:\n{report}")
 print(f"Average age: {average_age:.2f}")
