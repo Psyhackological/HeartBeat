@@ -1,5 +1,9 @@
+from typing import Any
+
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier  # type: ignore
+from sklearn.metrics import accuracy_score  # type: ignore
+from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 
 df = pd.read_csv("heart.csv")
@@ -54,3 +58,15 @@ def log_results(func: Any) -> Any:
 def calculate_average_age(data: pd.DataFrame) -> float:
     """Calculate the average age of patients"""
     return data["age"].mean()
+
+
+predictor = HeartDiseasePredictor()
+predictor.train(pd.concat([x_train, y_train], axis=1))
+predictions = predictor.predict(x_test)
+accuracy = accuracy_score(y_test, predictions)
+report = classification_report(y_test, predictions)
+average_age = calculate_average_age(df)
+
+print(f"Accuracy: {accuracy:.2f}")
+print(f"Classification Report:\n{report}")
+print(f"Average age: {average_age:.2f}")
