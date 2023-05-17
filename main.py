@@ -1,17 +1,12 @@
+"""Final project: Heart Disease Prediction"""
+
 from typing import Any
 
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier  # type: ignore
 from sklearn.metrics import accuracy_score  # type: ignore
-from sklearn.metrics import classification_report
-from sklearn.model_selection import train_test_split
-
-df = pd.read_csv("heart.csv")
-x = df.drop("target", axis=1)
-y = df["target"]
-x_train, x_test, y_train, y_test = train_test_split(
-    x, y, test_size=0.2, random_state=42
-)
+from sklearn.metrics import classification_report  # type: ignore
+from sklearn.model_selection import train_test_split  # type: ignore
 
 
 class BaseModel:
@@ -59,6 +54,13 @@ def calculate_average_age(data: pd.DataFrame) -> float:
     """Calculate the average age of patients"""
     return data["age"].mean()
 
+
+df = pd.read_csv("heart.csv")
+x = df.drop("target", axis=1)
+y = df["target"]
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.2, random_state=42
+)
 
 predictor = HeartDiseasePredictor()
 predictor.train(pd.concat([x_train, y_train], axis=1))
