@@ -3,10 +3,15 @@
 from typing import Any
 
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier  # type: ignore
-from sklearn.metrics import accuracy_score  # type: ignore
-from sklearn.metrics import classification_report  # type: ignore
-from sklearn.model_selection import train_test_split  # type: ignore
+import ydata_profiling as ydp
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 
 class BaseModel:
@@ -26,8 +31,14 @@ class HeartDiseasePredictor(BaseModel):
 
     def __init__(self) -> None:
         self.models = [
-            RandomForestClassifier() for _ in range(3)
-        ]  # TODO: Implement more models
+            RandomForestClassifier(),
+            LogisticRegression(),
+            GaussianNB(),
+            GradientBoostingClassifier(),
+            KNeighborsClassifier(),
+            DecisionTreeClassifier(),
+            SVC(),
+        ]
 
     def train(self, data: pd.DataFrame) -> None:
         """Train the HeartDiseasePredictor models with data"""
@@ -68,14 +79,25 @@ x_train, x_test, y_train, y_test = train_test_split(
 
 predictor = HeartDiseasePredictor()
 predictor.train(pd.concat([x_train, y_train], axis=1))
-model_predictions = predictor.predict(x_test)  # list of predictions for each model
+# list of predictions for each model
+model_predictions = predictor.predict(x_test)
+model_names = [
+    "Random Forest",
+    "Logistic Regression",
+    "Naive Bayes",
+    "Gradient Boosting",
+    "K-Nearest Neighbors",
+    "Decision Tree",
+    "Support Vector Machine",
+]
 
 # Loop to print out the accuracy of each model
 for i, pred in enumerate(model_predictions):
     accuracy = accuracy_score(y_test, pred)
     report = classification_report(y_test, pred)
-    print(f"Model {i+1} Accuracy: {accuracy:.2f}")
-    print(f"Model {i+1} Classification Report:\n{report}")
+    model_name = model_names[i]
+    print(f"Model {i+1} - {model_name} Accuracy: {accuracy:.2f}")
+    print(f"Model {i+1} - {model_name} Classification Report:\n{report}")
 
 average_age = calculate_average_age(df)
 
