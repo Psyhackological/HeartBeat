@@ -3,15 +3,15 @@
 from typing import Any
 
 import pandas as pd
-import ydata_profiling as ydp
-from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import GradientBoostingClassifier  # type: ignore
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression  # type: ignore
+from sklearn.metrics import accuracy_score, classification_report  # type: ignore
+from sklearn.model_selection import train_test_split  # type: ignore
+from sklearn.naive_bayes import GaussianNB  # type: ignore
+from sklearn.neighbors import KNeighborsClassifier  # type: ignore
+from sklearn.svm import SVC  # type: ignore
+from sklearn.tree import DecisionTreeClassifier  # type: ignore
 
 
 class BaseModel:
@@ -32,7 +32,7 @@ class HeartDiseasePredictor(BaseModel):
     def __init__(self) -> None:
         self.models = [
             RandomForestClassifier(),
-            LogisticRegression(),
+            LogisticRegression(max_iter=1000),
             GaussianNB(),
             GradientBoostingClassifier(),
             KNeighborsClassifier(),
@@ -96,7 +96,7 @@ for i, pred in enumerate(model_predictions):
     accuracy = accuracy_score(y_test, pred)
     report = classification_report(y_test, pred)
     model_name = model_names[i]
-    print(f"Model {i+1} - {model_name} Accuracy: {accuracy:.2f}")
+    print(f"Model {i+1} - {model_name} Accuracy: {accuracy:.3f}")
     print(f"Model {i+1} - {model_name} Classification Report:\n{report}")
 
 average_age = calculate_average_age(df)
