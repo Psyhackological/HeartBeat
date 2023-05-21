@@ -4,11 +4,9 @@ from typing import Any
 
 import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier  # type: ignore
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression  # type: ignore
+from sklearn.ensemble import RandomForestClassifier  # type: ignore
 from sklearn.metrics import accuracy_score, classification_report  # type: ignore
 from sklearn.model_selection import train_test_split  # type: ignore
-from sklearn.naive_bayes import GaussianNB  # type: ignore
 from sklearn.neighbors import KNeighborsClassifier  # type: ignore
 from sklearn.svm import SVC  # type: ignore
 from sklearn.tree import DecisionTreeClassifier  # type: ignore
@@ -32,8 +30,6 @@ class HeartDiseasePredictor(BaseModel):
     def __init__(self) -> None:
         self.models = [
             RandomForestClassifier(),
-            LogisticRegression(max_iter=1000),
-            GaussianNB(),
             GradientBoostingClassifier(),
             KNeighborsClassifier(),
             DecisionTreeClassifier(),
@@ -83,8 +79,6 @@ predictor.train(pd.concat([x_train, y_train], axis=1))
 model_predictions = predictor.predict(x_test)
 model_names = [
     "Random Forest",
-    "Logistic Regression",
-    "Naive Bayes",
     "Gradient Boosting",
     "K-Nearest Neighbors",
     "Decision Tree",
