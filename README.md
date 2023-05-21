@@ -46,24 +46,25 @@ Additionaly, project includes:
 
 The following software, libraries, and versions are required to run the project:
 
-- Python (version 3.6 or higher)
+- Python (version 3.8 or higher)
 - pandas
+- numpy
 - scikit-learn
-- ydata-profiling
+- plotly
 
 ## Installation
 
 To install and set up the project, follow these steps:
 
-1. Install Python (version 3.6 or higher) on your system.
+1. Install Python (version 3.8 or higher) on your system.
 2. Open a command prompt or terminal.
 3. Clone the project repository.
 4. Navigate to the project directory.
 5. Create a virtual environment (optional but recommended).
 6. Install the required libraries by running the following command:
 
-```
-pip3 install -r requirements.txt
+```bash
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -80,7 +81,7 @@ To use the project, follow these instructions:
 
 Example usage:
 
-```
+```bash
 python3 main.py
 
 ```
@@ -113,8 +114,6 @@ The project performs model validation by splitting the dataset into training and
 The following machine learning models are used for heart disease prediction:
 
 - Random Forest
-- Logistic Regression
-- Naive Bayes
 - Gradient Boosting
 - K-Nearest Neighbors
 - Decision Tree
@@ -123,7 +122,6 @@ The following machine learning models are used for heart disease prediction:
 For each model, the accuracy score and classification report are displayed, providing insights into the model's performance.
 
 Additionally, the project calculates and displays the average age of patients in the dataset.
-## 
 
 After starting the project using,
 ```
@@ -141,9 +139,9 @@ The different accuracies for each model can be attributed to several factors, in
    
 Random Forest output:
    
-```
-Model 1 - Random Forest Accuracy: 0.985
-Model 1 - Random Forest Classification Report:
+```console
+Model 1 - RandomForestClassifier Accuracy: 0.985
+Model 1 - RandomForestClassifier Classification Report:
               precision    recall  f1-score   support
 
            0       0.97      1.00      0.99       102
@@ -154,48 +152,6 @@ Model 1 - Random Forest Classification Report:
 weighted avg       0.99      0.99      0.99       205
 ```
 
-- Logistic Regression:
-
-    - Logistic Regression is a linear model that assumes a linear relationship between the features and the target variable.
-    - An accuracy of 0.795 suggests that the Logistic Regression model performed reasonably well but not as well as Random Forest.
-    - Logistic Regression might struggle when the relationship between features and the target variable is non-linear or when there are interactions between features that the model cannot capture effectively.
-    
-Logistic Regression output:
-```
-Model 2 - Logistic Regression Accuracy: 0.795
-Model 2 - Logistic Regression Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.85      0.72      0.78       102
-           1       0.76      0.87      0.81       103
-
-    accuracy                           0.80       205
-   macro avg       0.80      0.79      0.79       205
-weighted avg       0.80      0.80      0.79       205
-
-```
-
-- Naive Bayes:
-
-    - Naive Bayes is a probabilistic model that assumes independence between features given the target variable.
-    - An accuracy of 0.800 indicates a relatively good performance by the Naive Bayes model.
-    - Naive Bayes models can be fast and effective, especially when the independence assumption holds reasonably well in the data.
-    
-Naive Bayes output:
-
-```
-Model 3 - Naive Bayes Accuracy: 0.800
-Model 3 - Naive Bayes Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.87      0.71      0.78       102
-           1       0.75      0.89      0.82       103
-
-    accuracy                           0.80       205
-   macro avg       0.81      0.80      0.80       205
-weighted avg       0.81      0.80      0.80       205
-
-```
 - Gradient Boosting:
 
     - Gradient Boosting is an ensemble method that combines weak learners, usually decision trees, to make predictions.
@@ -203,9 +159,10 @@ weighted avg       0.81      0.80      0.80       205
     - Gradient Boosting models can be powerful but might require careful tuning of hyperparameters to achieve optimal performance.
 
 Gradient Boosting output:
-```
-Model 4 - Gradient Boosting Accuracy: 0.932
-Model 4 - Gradient Boosting Classification Report:
+
+```console
+Model 2 - GradientBoostingClassifier Accuracy: 0.932
+Model 2 - GradientBoostingClassifier Classification Report:
               precision    recall  f1-score   support
 
            0       0.95      0.91      0.93       102
@@ -224,9 +181,9 @@ weighted avg       0.93      0.93      0.93       205
   
 KNN output:
 
-```
-Model 5 - K-Nearest Neighbors Accuracy: 0.732
-Model 5 - K-Nearest Neighbors Classification Report:
+```console
+Model 3 - KNeighborsClassifier Accuracy: 0.732
+Model 3 - KNeighborsClassifier Classification Report:
               precision    recall  f1-score   support
 
            0       0.73      0.73      0.73       102
@@ -235,8 +192,8 @@ Model 5 - K-Nearest Neighbors Classification Report:
     accuracy                           0.73       205
    macro avg       0.73      0.73      0.73       205
 weighted avg       0.73      0.73      0.73       205
-
 ```
+
 - Decision Tree:
 
    - Decision Tree is a model that uses a tree-like structure to make decisions based on feature values.
@@ -245,9 +202,9 @@ weighted avg       0.73      0.73      0.73       205
    
 Decision Tree output:
    
-```
-Model 6 - Decision Tree Accuracy: 0.985
-Model 6 - Decision Tree Classification Report:
+```console
+Model 4 - DecisionTreeClassifier Accuracy: 0.985
+Model 4 - DecisionTreeClassifier Classification Report:
               precision    recall  f1-score   support
 
            0       0.97      1.00      0.99       102
@@ -266,9 +223,8 @@ weighted avg       0.99      0.99      0.99       205
   
 SVM output:
   
-```
-Model 7 - Support Vector Machine Accuracy: 0.683
-Model 7 - Support Vector Machine Classification Report:
+Model 5 - SVC Accuracy: 0.683
+Model 5 - SVC Classification Report:
               precision    recall  f1-score   support
 
            0       0.71      0.61      0.66       102
@@ -277,13 +233,11 @@ Model 7 - Support Vector Machine Classification Report:
     accuracy                           0.68       205
    macro avg       0.69      0.68      0.68       205
 weighted avg       0.69      0.68      0.68       205
-
 ```
 
 It's important to note that the dataset itself and its characteristics, such as the distribution of classes, feature relationships, and noise, can also influence the model's performance. Additionally, the choice of hyperparameters and the training/validation data split can impact the accuracies. It is common to experiment with different models, hyperparameters, and evaluation metrics to identify the best-performing model for a specific task.
 
-## 
-Explaining the components in the classification report:
+## Explaining the components in the classification report:
 
 1. Precision:
 
