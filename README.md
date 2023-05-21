@@ -2,7 +2,7 @@
   HeartBeat
 </h1>
 <p align="center">
-  <img src="https://i.pinimg.com/originals/b3/70/5c/b3705cc2edf8f527789e6e2be29f6267.gif" alt="HeartBeatGif">
+  <img src="img/HeartBeat.gif" alt="HeartBeatGif">
 </p>
 
 # Table of contents
