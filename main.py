@@ -16,7 +16,7 @@ from sklearn.tree import DecisionTreeClassifier  # type: ignore
 class BaseModel:
     """Base class for models"""
 
-    def train(self, data: pd.DataFrame) -> None:
+    def fit(self, data: pd.DataFrame) -> None:
         """Train the model with data"""
         raise NotImplementedError
 
@@ -37,7 +37,7 @@ class HeartDiseasePredictor(BaseModel):
             SVC(),
         ]
 
-    def train(self, data: pd.DataFrame) -> None:
+    def fit(self, data: pd.DataFrame) -> None:
         """Train the HeartDiseasePredictor models with data"""
         x_train_data = data.drop("target", axis=1)
         y_train_data = data["target"]
@@ -75,7 +75,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 )
 
 predictor = HeartDiseasePredictor()
-predictor.train(pd.concat([x_train, y_train], axis=1))
+predictor.fit(pd.concat([x_train, y_train], axis=1))
 # list of predictions for each model
 model_predictions = predictor.predict(x_test)
 model_names = [
