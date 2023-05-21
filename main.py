@@ -78,6 +78,9 @@ predictor = HeartDiseasePredictor()
 predictor.fit(pd.concat([x_train, y_train], axis=1))
 model_predictions = predictor.predict(x_test)
 
+# store model names and accuracy
+model_accuracies = []
+
 for i, current_model in enumerate(predictor.models):
     pred = model_predictions[i]
     accuracy = accuracy_score(y_test, pred)
@@ -86,6 +89,13 @@ for i, current_model in enumerate(predictor.models):
     print(f"Model {i+1} - {model_name} Accuracy: {accuracy:.3f}")
     print(f"Model {i+1} - {model_name} Classification Report:\n{report}")
 
-average_age = calculate_average_age(df)
+    # store the model name and accuracy for later
+    model_accuracies.append((model_name, accuracy))
 
-print(f"Average age: {average_age:.2f}")
+# sort by accuracy in descending order
+model_accuracies.sort(key=lambda x: x[1], reverse=True)
+
+# print the top models
+print("Top Models by Accuracy:")
+for i, (model_name, accuracy) in enumerate(model_accuracies, 1):
+    print(f"{i}. {model_name}: {accuracy:.3f}")
