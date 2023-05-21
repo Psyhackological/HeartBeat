@@ -1,7 +1,8 @@
 """Final project: Heart Disease Prediction"""
 
-from typing import Any
+from typing import List
 
+import numpy as np
 import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier  # type: ignore
 from sklearn.ensemble import RandomForestClassifier  # type: ignore
@@ -19,7 +20,7 @@ class BaseModel:
         """Train the model with data"""
         raise NotImplementedError
 
-    def predict(self, data: pd.DataFrame) -> Any:
+    def predict(self, data: pd.DataFrame) -> List[np.ndarray]:
         """Predict using the trained model with data"""
         raise NotImplementedError
 
@@ -43,16 +44,16 @@ class HeartDiseasePredictor(BaseModel):
         for model in self.models:
             model.fit(x_train_data, y_train_data)
 
-    def predict(self, data: pd.DataFrame) -> Any:
+    def predict(self, data: pd.DataFrame) -> List[np.ndarray]:
         """Predict using the trained HeartDiseasePredictor models with data"""
         predictions = [model.predict(data) for model in self.models]
         return predictions
 
 
-def log_results(func: Any) -> Any:
+def log_results(func):
     """Decorator for logging function results"""
 
-    def wrapper(*args: Any, **kwargs: Any) -> Any:
+    def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         print(f"Function {func.__name__} returned {result:.2f}")
         return result
