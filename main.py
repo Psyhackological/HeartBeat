@@ -76,21 +76,13 @@ x_train, x_test, y_train, y_test = train_test_split(
 
 predictor = HeartDiseasePredictor()
 predictor.fit(pd.concat([x_train, y_train], axis=1))
-# list of predictions for each model
 model_predictions = predictor.predict(x_test)
-model_names = [
-    "Random Forest",
-    "Gradient Boosting",
-    "K-Nearest Neighbors",
-    "Decision Tree",
-    "Support Vector Machine",
-]
 
-# Loop to print out the accuracy of each model
-for i, pred in enumerate(model_predictions):
+for i, current_model in enumerate(predictor.models):
+    pred = model_predictions[i]
     accuracy = accuracy_score(y_test, pred)
     report = classification_report(y_test, pred)
-    model_name = model_names[i]
+    model_name = type(current_model).__name__
     print(f"Model {i+1} - {model_name} Accuracy: {accuracy:.3f}")
     print(f"Model {i+1} - {model_name} Classification Report:\n{report}")
 
