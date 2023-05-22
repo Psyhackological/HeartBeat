@@ -222,7 +222,8 @@ weighted avg       0.99      0.99      0.99       205
   - SVM's performance can be sensitive to the choice of kernel, regularization parameters, and data scaling. It might struggle with complex or overlapping class boundaries.
   
 SVM output:
-  
+
+```console  
 Model 5 - SVC Accuracy: 0.683
 Model 5 - SVC Classification Report:
               precision    recall  f1-score   support
@@ -265,7 +266,7 @@ A classification report typically presents these metrics for each class in the t
 
 Example of a binary classification report (not related to the provided CSV file) to illustrate how the metrics are interpreted:
 
-```
+```console  
               precision    recall  f1-score   support
 
     Class 0       0.80      0.90      0.85       100
