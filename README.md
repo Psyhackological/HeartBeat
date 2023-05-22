@@ -19,12 +19,12 @@
 
 Get your heart racing with HeartBeat! This AI-powered machine learning project skips a beat to predict heart disease. It's like a cardio workout for your data, crunching numbers to keep your health in check. The system utilizes different machine learning models to make predictions and provides accuracy metrics for evaluation.
 
-## Main features
-- Utilizes multiple machine learning models for heart disease prediction.
-- Calculates the average age of patients in the dataset.
-- Provides accuracy metrics and classification reports for each model.
+## Main Features
+- Utilizes various machine learning models for predicting heart disease.
+- Computes the average age of patients present in the dataset.
+- Offers accuracy metrics and classification reports for evaluating each model's performance.
 
-Additionaly, project includes:
+Additionally, the project includes:
 - [x] Use of basic Python data structures:
     - [x] Lists
     - [x] Tuples
@@ -42,7 +42,7 @@ Additionaly, project includes:
 
 ## Requirements
 ### For installation
-[python-pip](https://pip.pypa.io/en/stable/) - pip is the package installer for Python. You can use it to install packages from the Python Package Index and other indexes.
+[python-pip](https://pip.pypa.io/en/stable/) - pip is the package installer for Python, and it allows you to install packages from various sources, such as the Python Package Index.
 
 The following software, libraries, and versions are required to run the project:
 
@@ -69,17 +69,17 @@ pip install -r requirements.txt
 
 ## Usage
 
-To use the project, follow these instructions:
+To utilize the project, adhere to the following steps:
 
-1. Obtain the dataset for heart disease prediction. The dataset should be in CSV format.
-2. Place the dataset file in the same directory as the project code.
-3. Update the code to specify the correct dataset filename if necessary.
-4. Run the project code using Python.
-5. The program will train the models on the dataset and generate predictions.
-6. The accuracy of each model and its classification report will be displayed.
-7. The average age of patients in the dataset will also be calculated and displayed.
+1. Procure the dataset for heart disease prediction. The dataset needs to be in CSV format.
+2. Position the dataset file in the same directory as the project code.
+3. If necessary, modify the code to indicate the appropriate dataset filename.
+4. Execute the project code using Python.
+5. The program will then train the models on the dataset and formulate predictions.
+6. The performance accuracy of each model and its respective classification report will be displayed.
+7. The program will also compute and display the average age of patients present in the dataset.
 
-Example usage:
+Example of how to use:
 
 ```bash
 python3 main.py
@@ -97,15 +97,15 @@ The dataset has the following structure:
 | sex                  | sex of the patient (0 = female, 1 = male) |
 | cp                   | Type of chest pain                     |
 | trestbps             | resting blood pressure (in mm Hg on admission to the hospital)|
-| chol                 | serum cholestoral in mg/dl   |
+| chol                 | serum cholesterol in mg/dl   |
 | fbs                  | (fasting blood sugar &gt; 120 mg/dl) (1 = true; 0 = false) |
 | restecg              | resting electrocardiographic results    |
 | thalach              | maximum heart rate achieved             |
 | exang                | exercise induced angina (1 = yes; 0 = no)               |
 | oldpeak              | ST depression induced by exercise relative to rest      |
 | slope                | Slope of the peak exercise ST segment   |
-| ca                   | Number of major vessels (0-3) colored by flourosopy|
-| thal                 | Thalassemia 0 = normal; 1 = fixed defect; 2 = reversable defect |
+| ca                   | Number of major vessels (0-3) coloured by fluoroscopy|
+| thal                 | Thalassemia 0 = normal; 1 = fixed defect; 2 = reversible defect |
 | target               | Presence of heart disease (0 = no, 1 = yes) |
 
 ## Validation
@@ -124,12 +124,12 @@ For each model, the accuracy score and classification report are displayed, prov
 Additionally, the project calculates and displays the average age of patients in the dataset.
 
 After starting the project using,
-```
+```bash
 python3 main.py
 ```
-we can notice that each model has different accuracy. So here is an explanation of why this is happening with outputs from each model: 
+we can notice that each model has different accuracy. So, here is an explanation of why this is happening with outputs from each model: 
 
-The different accuracies for each model can be attributed to several factors, including the underlying algorithms, their modeling assumptions, and how well they fit the given dataset. Let's discuss the potential reasons for the variation in accuracies:
+Each model's accuracy can be attributed to several factors, such as the algorithms they use, how they are built, and how well they fit the given dataset. Let's discuss the potential reasons for the variation in accuracies:
 
 - Random Forest:
 
@@ -175,7 +175,7 @@ weighted avg       0.93      0.93      0.93       205
 
 - K-Nearest Neighbors (KNN):
 
-  -  KNN is a non-parametric algorithm that assigns a class to a sample based on the majority class of its nearest neighbors.
+  - KNN is a non-parametric algorithm that assigns a class to a sample based on the majority class of its nearest neighbors.
   - An accuracy of 0.732 indicates relatively lower performance compared to other models.
   - KNN can struggle with high-dimensional data or when the dataset has imbalanced class distributions.
   
@@ -198,7 +198,7 @@ weighted avg       0.73      0.73      0.73       205
 
    - Decision Tree is a model that uses a tree-like structure to make decisions based on feature values.
    - An accuracy of 0.985 suggests that the Decision Tree model performed very well on the given data.
-   - Decision Trees can capture complex relationships in the data but might be prone to overfitting if not pruned or regularized.
+   - Decision Trees can capture complex relationships in the data, but might be prone to overfitting if not pruned or regularized.
    
 Decision Tree output:
    
@@ -262,7 +262,7 @@ It's important to note that the dataset itself and its characteristics, such as 
     - It provides insight into the distribution of samples across different classes.
     -The support value can help identify potential class imbalances or biases in the dataset.
     
-A classification report typically presents these metrics for each class in the target variable. It allows to assess the model's performance across different classes, which is particularly useful when dealing with multi-class classification problems.
+A classification report typically presents these metrics for each class in the target variable. It allows assessing the model's performance across different classes, which is particularly useful when dealing with multi-class classification problems.
 
 Example of a binary classification report (not related to the provided CSV file) to illustrate how the metrics are interpreted:
 
@@ -293,17 +293,6 @@ For Class 1:
 
 ## Licence
 
-![MIT Image](https://www.mend.io/wp-content/media/2021/04/aHViPTcyNTE0JmNtZD1pdGVtZWRpdG9yaW1hZ2UmZmlsZW5hbWU9aXRlbWVkaXRvcmltYWdlXzVjNDk3OTRhMTc1ZjEucG5nJnZlcnNpb249MDAwMCZzaWc9NmZmMDU2MWFkNjA1ZTU2NDQxNDVmZWJmOTYyYTQwNDk.png)
+![MIT Image](https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg)
 
 Software licensed under the MIT Licence.
-
-## Heart Disease Predictor Project Presentation
-
-- [ ] Slide 1: Title Slide
-- [ ] Slide 2: Exploring and Understanding the Dataset
-- [ ] Slide 3: Project Objectives and Practical Applications
-- [ ] Slide 4: Implementation Details
-- [ ] Slide 5: Questions from the Audience
-- [ ] Slide 6: Conclusion
-- [ ] Slide 7: Insights and Improvement Opportunities
-- [ ] Slide 8: Thank You
