@@ -4,6 +4,7 @@ from typing import List
 
 import numpy as np
 import pandas as pd
+import plotly.express as px
 from sklearn.ensemble import GradientBoostingClassifier  # type: ignore
 from sklearn.ensemble import RandomForestClassifier  # type: ignore
 from sklearn.metrics import accuracy_score, classification_report  # type: ignore
@@ -99,3 +100,19 @@ model_accuracies.sort(key=lambda x: x[1], reverse=True)
 print("Top Models by Accuracy:")
 for i, (model_name, accuracy) in enumerate(model_accuracies, 1):
     print(f"{i}. {model_name}: {accuracy:.3f}")
+
+# prepare data for plotly
+models, accuracies = zip(*model_accuracies)
+
+# create bar chart with plotly
+fig = px.bar(
+    x=models,
+    y=accuracies,
+    labels={"x": "Model", "y": "Accuracy"},
+    title="Model Accuracies",
+)
+
+# set the template to 'plotly_dark'
+fig.update_layout(template="plotly_dark")
+
+fig.show()
