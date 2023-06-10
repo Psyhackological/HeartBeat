@@ -116,3 +116,18 @@ fig = px.bar(
 fig.update_layout(template="plotly_dark")
 
 fig.show()
+
+# create correlation matrix plot
+correlation_matrix = df.corr()
+
+fig2 = px.imshow(
+    correlation_matrix,
+    x=correlation_matrix.columns,
+    y=correlation_matrix.columns,
+    labels=dict(x="Features", y="Features"),
+    color_continuous_scale="RdBu_r",
+    title="Correlation Matrix",
+)
+
+fig2.update_layout(template="plotly_dark")
+fig2.show()
