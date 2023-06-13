@@ -108,6 +108,13 @@ The dataset has the following structure:
 | thal                 | Thalassemia 0 = normal; 1 = fixed defect; 2 = reversible defect |
 | target               | Presence of heart disease (0 = no, 1 = yes) |
 
+##### Correlation Matrix plot
+A correlation plot, also known as a correlation matrix or a heatmap, is a graphical representation used to visualize the relationship between variables in a dataset. It provides a quick and intuitive way to identify patterns, trends, and dependencies among different variables.
+
+In a correlation plot, each variable is represented by both rows and columns, forming a square matrix. The correlation coefficient, which measures the strength and direction of the linear relationship between two variables, is computed for each pair of variables in the dataset. The correlation coefficient ranges from -1 to 1, where -1 indicates a perfect negative correlation, 1 indicates a perfect positive correlation, and 0 indicates no correlation.
+
+![Correlation martix plot](https://i.imgur.com/1sTv128.png)
+
 ## Validation
 The project performs model validation by splitting the dataset into training and testing sets. The models are trained on the training set and then tested on the testing set to evaluate their accuracy.
 
@@ -237,6 +244,13 @@ weighted avg       0.69      0.68      0.68       205
 ```
 
 It's important to note that the dataset itself and its characteristics, such as the distribution of classes, feature relationships, and noise, can also influence the model's performance. Additionally, the choice of hyperparameters and the training/validation data split can impact the accuracies. It is common to experiment with different models, hyperparameters, and evaluation metrics to identify the best-performing model for a specific task.
+
+##### Plot with model accuracies
+An accuracies model plot is used to compare the performance of different machine learning algorithms or models. It provides a visual representation of the accuracy achieved by each model, allowing you to assess their relative effectiveness in making predictions.
+
+The plot displays the different machine learning models on the x-axis, while the y-axis represents the corresponding accuracy scores. Each model is represented by a bar, line, or other graphical element, with the height or position indicating its accuracy value.
+
+![Accuracies model plot](https://i.imgur.com/5LE5rDG.png)
 
 ## Explaining the components in the classification report:
 
