@@ -6,6 +6,7 @@
 </p>
 
 # Table of contents
+
 1. [Introduction](#introduction)
 2. [Main Features](#main-features)
 3. [Requirements](#requirements)
@@ -13,35 +14,39 @@
 5. [Usage](#usage)
 6. [Data Source and Structure](#data-source-and-structure)
 7. [Validation](#validation)
-8. [Licence](#license)
+8. [Licence](#licence)
 
 ## Introduction
 
 Get your heart racing with HeartBeat! This AI-powered machine learning project skips a beat to predict heart disease. It's like a cardio workout for your data, crunching numbers to keep your health in check. The system utilizes different machine learning models to make predictions and provides accuracy metrics for evaluation.
 
 ## Main Features
+
 - Utilizes various machine learning models for predicting heart disease.
 - Computes the average age of patients present in the dataset.
 - Offers accuracy metrics and classification reports for evaluating each model's performance.
 
 Additionally, the project includes:
+
 - [x] Use of basic Python data structures:
-    - [x] Lists
-    - [x] Tuples
-    - [x] Dictionaries
+  - [x] Lists
+  - [x] Tuples
+  - [x] Dictionaries
 - [x] Implementation of a Class with:
-    - [x] Inheritance
-    - [x] Attribute lookups in objects/classes
+  - [x] Inheritance
+  - [x] Attribute lookups in objects/classes
 - [x] Use of Python descriptors or magic methods
 - [x] Use of at least one decorator
 - [x] Other required project elements:
-    - [x] Variable assignments
-    - [x] Use of methods
-    - [x] Creation/invocation of functions
-    - [x] Use of loops
+  - [x] Variable assignments
+  - [x] Use of methods
+  - [x] Creation/invocation of functions
+  - [x] Use of loops
 
 ## Requirements
+
 ### For installation
+
 [python-pip](https://pip.pypa.io/en/stable/) - pip is the package installer for Python, and it allows you to install packages from various sources, such as the Python Package Index.
 
 The following software, libraries, and versions are required to run the project:
@@ -87,6 +92,7 @@ python3 main.py
 ```
 
 ## Data Source and Structure
+
 The data used in this project is sourced from a CSV file named "heart.csv". It contains various attributes of patients related to heart disease, including age, sex, chest pain type, resting blood pressure, cholesterol levels, and more.
 
 The dataset has the following structure:
@@ -109,6 +115,7 @@ The dataset has the following structure:
 | target               | Presence of heart disease (0 = no, 1 = yes) |
 
 ##### Correlation Matrix plot
+
 A correlation plot, also known as a correlation matrix or a heatmap, is a graphical representation used to visualize the relationship between variables in a dataset. It provides a quick and intuitive way to identify patterns, trends, and dependencies among different variables.
 
 In a correlation plot, each variable is represented by both rows and columns, forming a square matrix. The correlation coefficient, which measures the strength and direction of the linear relationship between two variables, is computed for each pair of variables in the dataset. The correlation coefficient ranges from -1 to 1, where -1 indicates a perfect negative correlation, 1 indicates a perfect positive correlation, and 0 indicates no correlation.
@@ -116,6 +123,7 @@ In a correlation plot, each variable is represented by both rows and columns, fo
 ![Correlation martix plot](https://i.imgur.com/1sTv128.png)
 
 ## Validation
+
 The project performs model validation by splitting the dataset into training and testing sets. The models are trained on the training set and then tested on the testing set to evaluate their accuracy.
 
 The following machine learning models are used for heart disease prediction:
@@ -131,21 +139,23 @@ For each model, the accuracy score and classification report are displayed, prov
 Additionally, the project calculates and displays the average age of patients in the dataset.
 
 After starting the project using,
+
 ```bash
 python3 main.py
 ```
-we can notice that each model has different accuracy. So, here is an explanation of why this is happening with outputs from each model: 
+
+we can notice that each model has different accuracy. So, here is an explanation of why this is happening with outputs from each model:
 
 Each model's accuracy can be attributed to several factors, such as the algorithms they use, how they are built, and how well they fit the given dataset. Let's discuss the potential reasons for the variation in accuracies:
 
 - Random Forest:
 
-   - Random Forest is an ensemble method that combines multiple decision trees. It tends to perform well on a wide range of datasets.
-   - The accuracy of 0.985 indicates that the Random Forest model achieved a very high level of accuracy on the test data.
-   - Random Forests are known for their ability to handle complex relationships and noisy data, which might contribute to their high accuracy in this case.
-   
+  - Random Forest is an ensemble method that combines multiple decision trees. It tends to perform well on a wide range of datasets.
+  - The accuracy of 0.985 indicates that the Random Forest model achieved a very high level of accuracy on the test data.
+  - Random Forests are known for their ability to handle complex relationships and noisy data, which might contribute to their high accuracy in this case.
+
 Random Forest output:
-   
+
 ```console
 Model 1 - RandomForestClassifier Accuracy: 0.985
 Model 1 - RandomForestClassifier Classification Report:
@@ -161,9 +171,9 @@ weighted avg       0.99      0.99      0.99       205
 
 - Gradient Boosting:
 
-    - Gradient Boosting is an ensemble method that combines weak learners, usually decision trees, to make predictions.
-    - An accuracy of 0.932 suggests a good performance by the Gradient Boosting model, although not as high as Random Forest.
-    - Gradient Boosting models can be powerful but might require careful tuning of hyperparameters to achieve optimal performance.
+  - Gradient Boosting is an ensemble method that combines weak learners, usually decision trees, to make predictions.
+  - An accuracy of 0.932 suggests a good performance by the Gradient Boosting model, although not as high as Random Forest.
+  - Gradient Boosting models can be powerful but might require careful tuning of hyperparameters to achieve optimal performance.
 
 Gradient Boosting output:
 
@@ -203,12 +213,12 @@ weighted avg       0.73      0.73      0.73       205
 
 - Decision Tree:
 
-   - Decision Tree is a model that uses a tree-like structure to make decisions based on feature values.
-   - An accuracy of 0.985 suggests that the Decision Tree model performed very well on the given data.
-   - Decision Trees can capture complex relationships in the data, but might be prone to overfitting if not pruned or regularized.
-   
+  - Decision Tree is a model that uses a tree-like structure to make decisions based on feature values.
+  - An accuracy of 0.985 suggests that the Decision Tree model performed very well on the given data.
+  - Decision Trees can capture complex relationships in the data, but might be prone to overfitting if not pruned or regularized.
+
 Decision Tree output:
-   
+
 ```console
 Model 4 - DecisionTreeClassifier Accuracy: 0.985
 Model 4 - DecisionTreeClassifier Classification Report:
@@ -246,20 +256,21 @@ weighted avg       0.69      0.68      0.68       205
 It's important to note that the dataset itself and its characteristics, such as the distribution of classes, feature relationships, and noise, can also influence the model's performance. Additionally, the choice of hyperparameters and the training/validation data split can impact the accuracies. It is common to experiment with different models, hyperparameters, and evaluation metrics to identify the best-performing model for a specific task.
 
 ##### Plot with model accuracies
+
 An accuracies model plot is used to compare the performance of different machine learning algorithms or models. It provides a visual representation of the accuracy achieved by each model, allowing you to assess their relative effectiveness in making predictions.
 
 The plot displays the different machine learning models on the x-axis, while the y-axis represents the corresponding accuracy scores. Each model is represented by a bar, line, or other graphical element, with the height or position indicating its accuracy value.
 
 ![Accuracies model plot](https://i.imgur.com/5LE5rDG.png)
 
-## Explaining the components in the classification report:
+## Explaining the components in the classification report
 
 1. Precision:
 
     - Precision is the proportion of true positive predictions out of all positive predictions made by the model.
     - It measures the model's ability to avoid false positives, i.e., correctly identifying the positive class.
     - A high precision indicates that the model has a low rate of false positives.
-    
+
 2. Recall (also known as sensitivity or true positive rate):
 
     - Recall is the proportion of true positive predictions out of all actual positive samples in the dataset.
@@ -275,7 +286,7 @@ The plot displays the different machine learning models on the x-axis, while the
     - Support represents the number of samples in each class in the dataset.
     - It provides insight into the distribution of samples across different classes.
     -The support value can help identify potential class imbalances or biases in the dataset.
-    
+
 A classification report typically presents these metrics for each class in the target variable. It allows assessing the model's performance across different classes, which is particularly useful when dealing with multi-class classification problems.
 
 Example of a binary classification report (not related to the provided CSV file) to illustrate how the metrics are interpreted:
@@ -291,6 +302,7 @@ Example of a binary classification report (not related to the provided CSV file)
 weighted avg       0.78      0.78      0.77       150
 
 ```
+
 For Class 0:
 
 - Precision: 80% of the positive predictions for Class 0 were correct.
