@@ -317,8 +317,8 @@ For Class 1:
 - F1-score: The harmonic mean of precision and recall for Class 1 is 67%.
 - Support: There are 50 samples belonging to Class 1 in the dataset.
 
-## Licence
+## License
 
-![MIT Image](https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg)
+![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-with-text-136x68.png)
 
-Software licensed under the MIT Licence.
+This project is licensed under the [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/).

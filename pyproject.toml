@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "heartbeat"
-version = "0.1.0"
+version = "0.1.1"
 description = "Get your heart racing with HeartBeat! This AI-powered machine learning project skips a beat to predict heart disease. It's like a cardio workout for your data, crunching numbers to keep your health in check."
 authors = ["Psyhackological <konradkon@duck.com>"]
-license = "MIT"
+license = "GPLv3"
 readme = "README.md"
 
 [tool.poetry.dependencies]
